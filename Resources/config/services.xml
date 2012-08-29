@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="opensoft_simple_serializer.metadata.driver.file_locator.class">Opensoft\SimpleSerializer\Metadata\Driver\FileLocator</parameter>
+        <parameter key="opensoft_simple_serializer.metadata.driver.yaml.class">Opensoft\SimpleSerializer\Metadata\Driver\YamlDriver</parameter>
+        <parameter key="opensoft_simple_serializer.metadata.cache.file.class">Opensoft\SimpleSerializer\Metadata\Cache\FileCache</parameter>
+        <parameter key="opensoft_simple_serializer.metadata.factory.class">Opensoft\SimpleSerializer\Metadata\MetadataFactory</parameter>
+        <parameter key="opensoft_simple_serializer.metadata.hierarchy_metadata.class">Opensoft\SimpleSerializer\Metadata\ClassHierarchyMetadata</parameter>
+        <parameter key="opensoft_simple_serializer.adapter.json.class">Opensoft\SimpleSerializer\Adapter\JsonAdapter</parameter>
+        <parameter key="opensoft_simple_serializer.adapter.array.class">Opensoft\SimpleSerializer\Adapter\ArrayAdapter</parameter>
+        <parameter key="opensoft_simple_serializer.serializer.class">Opensoft\SimpleSerializer\Serializer</parameter>
+    </parameters>
+
+    <services>
+        <!-- Metadata Drivers -->
+        <service id="opensoft_simple_serializer.metadata.driver.file_locator" class="%opensoft_simple_serializer.metadata.driver.file_locator.class%" public="false">
+            <argument type="collection" />
+        </service>
+        <service id="opensoft_simple_serializer.metadata.driver.yaml" class="%opensoft_simple_serializer.metadata.driver.yaml.class%" public="false">
+            <argument type="service" id="opensoft_simple_serializer.metadata.driver.file_locator" />
+        </service>
+
+        <!--Cache-->
+        <service id="opensoft_simple_serializer.metadata.cache.file" class="%opensoft_simple_serializer.metadata.cache.file.class%" public="false">
+            <argument /> <!--Directory-->
+        </service>
+        <service id="opensoft_simple_serializer.metadata.cache" alias="opensoft_simple_serializer.metadata.cache.file" public="false" />
+
+        <!-- Metadata Factory -->
+        <service id="opensoft_simple_serializer.metadata.factory" class="%opensoft_simple_serializer.metadata.factory.class%" public="false">
+            <argument type="service" id="opensoft_simple_serializer.metadata.driver.yaml" />
+            <argument type="service" id="opensoft_simple_serializer.metadata.cache" on-invalid="ignore" />
+            <argument />
+            <argument>%opensoft_simple_serializer.metadata.hierarchy_metadata.class%</argument>
+        </service>
+
+        <service id="opensoft_simple_serializer.adapter.json" class="%opensoft_simple_serializer.adapter.json.class%" public="false" />
+        <service id="opensoft_simple_serializer.adapter.array" class="%opensoft_simple_serializer.adapter.array.class%" public="false">
+            <argument type="service" id="opensoft_simple_serializer.metadata.factory" />
+        </service>
+
+        <!-- Serializer -->
+        <service id="opensoft_simple_serializer.serializer" class="%opensoft_simple_serializer.serializer.class%" public="false">
+            <argument type="service" id="opensoft_simple_serializer.adapter.array" />
+            <argument type="service" id="opensoft_simple_serializer.adapter.json" />
+        </service>
+        <service id="serializer" alias="opensoft_simple_serializer.serializer" />
+
+    </services>
+</container>

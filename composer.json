@@ -1,0 +1,30 @@
+{
+    "name":        "opensoft/opensoft-simple-serializer-bundle",
+    "type":        "symfony-bundle",
+    "keywords":    ["SimpleSerializer", "Symfony", "REST", "serializer", "json"],
+    "homepage":    "https://github.com/opensoft/OpensoftSimpleSerializerBundle",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "Dmitry Petrov",
+            "email": "dmitry.petrov@opensoftdev.ru",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.0,<2.2-dev",
+        "opensoft/simple-serializer": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Opensoft\\Bundle\\SimpleSerializerBundle": ""
+        }
+    },
+    "minimum-stability": "dev",
+
+    "target-dir": "Opensoft/Bundle/SimpleSerializerBundle"
+}
