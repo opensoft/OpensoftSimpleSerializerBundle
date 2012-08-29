@@ -4,7 +4,7 @@ OpensoftSimpleSerializerBundle
 Introduction
 ------------
 
-OpensoftSimpleSerializerBundle is wrapper for SimpleSerializer library.
+OpensoftSimpleSerializerBundle is wrapper for <a href="https://github.com/opensoft/simple-serializer">simple-serializer</a> library.
 
 Installation
 ------------
