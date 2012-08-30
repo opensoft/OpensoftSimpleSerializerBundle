@@ -48,7 +48,7 @@
             <argument type="service" id="opensoft_simple_serializer.adapter.array" />
             <argument type="service" id="opensoft_simple_serializer.adapter.json" />
         </service>
-        <service id="serializer" alias="opensoft_simple_serializer.serializer" />
+        <service id="simple_serializer" alias="opensoft_simple_serializer.serializer" />
 
     </services>
 </container>

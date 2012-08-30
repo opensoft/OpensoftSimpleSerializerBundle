@@ -79,7 +79,7 @@ Make sure that you also register the namespaces with the autoloader:
 $loader->registerNamespaces(array(
     // ...
     'Opensoft'  => __DIR__.'/../vendor/bundles',
-    'Opensoft' => __DIR__.'/../vendor/simple-serializer/src',
+    'Opensoft\\SimpleSerializer' => __DIR__.'/../vendor/simple-serializer/src',
     // ...
 ));
 ```
@@ -158,13 +158,13 @@ Below you find a reference of all configuration options for property:
 * serialized_name
  * default value is equal name property
 
-Then you could use "serializer" service.
+Then you could use "simple_serializer" service.
 
 
 ```php
 <?php
 //serialization
-$serializer = $container->get('serializer');
+$serializer = $container->get('simple_serializer');
 $data = $serializer->serialize($object);
 //deserialization
 $object = $serializer->unserialize($data, $object);
