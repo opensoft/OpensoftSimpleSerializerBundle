@@ -151,9 +151,9 @@ Below you find a reference of all configuration options for property:
  * string
  * array
  * T - fully qualified class name
- * array<T>
+ * array\<T\>
  * DateTime (default format is ISO8601)
- * DateTime<format>
+ * DateTime\<format\>
   * format could be name of DateTime constant (COOKIE, ISO8601) or string
 * serialized_name
  * default value is equal name property
