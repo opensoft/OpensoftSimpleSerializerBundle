@@ -6,6 +6,8 @@ Introduction
 
 OpensoftSimpleSerializerBundle is wrapper for <a href="https://github.com/opensoft/simple-serializer">simple-serializer</a> library.
 
+[![Build Status](https://secure.travis-ci.org/opensoft/OpensoftSimpleSerializerBundle.png?branch=master)](http://travis-ci.org/opensoft/OpensoftSimpleSerializerBundle)
+
 Installation
 ------------
 
@@ -40,7 +42,7 @@ All that is left to do is to update your AppKernel.php file, and register the ne
 // in AppKernel::registerBundles()
 $bundles = array(
     // ...
-    new Opensoft\SimpleSerializerBundle\OpensoftSimpleSerializerBundle($this),
+    new Opensoft\Bundle\SimpleSerializerBundle\OpensoftSimpleSerializerBundle($this),
     // ...
 );
 ```
@@ -111,7 +113,7 @@ opensoft_simple_serializer:
         #
         # Example:
         # class: My\FooBundle\Entity\User
-        # expected path: @MyFooBundle/Resources/config/simple-serializer/Entity.User.(yml|xml|php)
+        # expected path: @MyFooBundle/Resources/config/simple-serializer/Entity.User.yml
         auto_detection: true
         # if you don't want to use auto-detection, you can also define the
         # namespace prefix and the corresponding directory explicitly
