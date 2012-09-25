@@ -139,6 +139,9 @@ Fully\Qualified\ClassName:
             expose: false
             type: string
             serialized_name: foo
+            since_version: 1.0
+            until_version: 2.0
+            groups: ['get','patch']
 ```
 
 Below you find a reference of all configuration options for property:
@@ -159,6 +162,13 @@ Below you find a reference of all configuration options for property:
   * format could be name of DateTime constant (COOKIE, ISO8601) or string
 * serialized_name
  * default value is equal name property
+* since_version
+ * string
+* until_version
+ * string
+* groups
+ * array
+
 
 Then you could use "simple_serializer" service.
 
@@ -167,7 +177,26 @@ Then you could use "simple_serializer" service.
 <?php
 //serialization
 $serializer = $container->get('simple_serializer');
-$data = $serializer->serialize($object);
+$string = $serializer->serialize($object);
+//Serialize array of the objects
+$string = $serializer->serialize(array($object));
+//Serialize specific groups
+$serializer->setGroups(array('get'));
+$string = $serializer->serialize($object);
+//Serialize specific version
+$serializer->setVersion('1.0');
+$string = $serializer->serialize($object);
 //deserialization
-$object = $serializer->unserialize($data, $object);
+$object = $serializer->unserialize($jsonData, $object);
+//Unserialize array of the objects
+$objects = $serializer->unserialize($jsonData, array($object));
+//Unserialize specific groups
+$serializer->setGroups(array('get'));
+$object = $serializer->unserialize($jsonData, $object);
+//Unserialize specific version
+$serializer->setVersion('1.0');
+$object = $serializer->unserialize($jsonData, $object);
+//Strict unserialize mode
+$serializer->setStrictUnserializeMode(true);
+$object = $serializer->unserialize($jsonData, $object);
 ```
