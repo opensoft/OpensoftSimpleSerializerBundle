@@ -197,6 +197,12 @@ $object = $serializer->unserialize($jsonData, $object);
 $serializer->setVersion('1.0');
 $object = $serializer->unserialize($jsonData, $object);
 //Strict unserialize mode
-$serializer->setStrictUnserializeMode(true);
+$serializer->setStrictUnserializeMode(2);
+$object = $serializer->unserialize($jsonData, $object);
+//Medium Strict unserialize mode
+$serializer->setStrictUnserializeMode(1);
+$object = $serializer->unserialize($jsonData, $object);
+//Non-Strict unserialize mode
+$serializer->setStrictUnserializeMode(0);
 $object = $serializer->unserialize($jsonData, $object);
 ```
