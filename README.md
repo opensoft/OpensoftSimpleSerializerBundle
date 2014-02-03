@@ -7,6 +7,9 @@ Introduction
 OpensoftSimpleSerializerBundle is wrapper for <a href="https://github.com/opensoft/simple-serializer">simple-serializer</a> library.
 
 [![Build Status](https://secure.travis-ci.org/opensoft/OpensoftSimpleSerializerBundle.png?branch=master)](http://travis-ci.org/opensoft/OpensoftSimpleSerializerBundle)
+[![Total Downloads](https://poser.pugx.org/opensoft/opensoft-simple-serializer-bundle/downloads.png)](https://packagist.org/packages/opensoft/opensoft-simple-serializer-bundle)
+[![Latest Stable Version](https://poser.pugx.org/opensoft/opensoft-simple-serializer-bundle/v/stable.png)](https://packagist.org/packages/opensoft/opensoft-simple-serializer-bundle)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/opensoft/OpensoftSimpleSerializerBundle/badges/quality-score.png?s=5944c51914658e14d6add8f7a6f602c1d36ba644)](https://scrutinizer-ci.com/g/opensoft/OpensoftSimpleSerializerBundle/)
 
 Installation
 ------------
@@ -22,7 +25,7 @@ To install OpensoftSimpleSerializerBundle with Composer just add the following t
     // ...
     require: {
         // ...
-        "opensoft/opensoft-simple-serializer-bundle": "dev-master"
+        "opensoft/opensoft-simple-serializer-bundle": "1.0.*"
     }
 }
 ```
