@@ -16,6 +16,8 @@
     </parameters>
 
     <services>
+        <defaults public="true" />
+
         <!-- Metadata Drivers -->
         <service id="opensoft_simple_serializer.metadata.driver.file_locator" class="%opensoft_simple_serializer.metadata.driver.file_locator.class%" public="false">
             <argument type="collection" />
