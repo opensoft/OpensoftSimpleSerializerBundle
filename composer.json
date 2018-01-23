@@ -15,7 +15,7 @@
     ],
 
     "require": {
-        "php": ">=5.3.3",
+        "php": "^5.5.9|>=7.0.8",
         "symfony/framework-bundle": "^3.3",
         "opensoft/simple-serializer": ">=1.0.0"
     },
